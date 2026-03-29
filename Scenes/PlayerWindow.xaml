@@ -13,68 +13,66 @@
 		<MicaBackdrop />
 	</Window.SystemBackdrop>
 
-	<Grid>
-        <StackPanel
-            Orientation="Horizontal"
-            Spacing="6">
+	<StackPanel
+        Orientation="Horizontal"
+        Spacing="6">
 
-			<Image
-                Source="/Assets/GUI/Album_Test.jpg"
-                Height="100"
-				VerticalAlignment="Top"/>
+		<Image
+            Source="/Assets/GUI/Album_Test.jpg"
+            Height="100"
+			VerticalAlignment="Top"/>
 
 
-            <StackPanel
-				Name="Controller"
-                Orientation="Vertical"
+		<StackPanel
+			Name="Controller"
+            Orientation="Vertical"
+            HorizontalAlignment="Center"
+            Spacing="0">
+
+			<TextBlock
+                Text="Title"
+                FontSize="18"/>
+			<TextBlock
+                Text="Artist"
+                FontSize="12"
+                Foreground="#b3b3b3"/>
+
+			<StackPanel
+				Name="TimeSlider"
+                Orientation="Horizontal"
                 HorizontalAlignment="Center"
-                Spacing="0">
+                Spacing="18">
 
-			    <TextBlock
-                    Text="Titlee"
-                    FontSize="18"/>
+				<Slider Width="200" Minimum="500" Maximum="1000" StepFrequency="10"
+                     SmallChange="10" Value="780"/>
 				<TextBlock
-                    Text="Artist"
-                    FontSize="12"
-                    Foreground="#b3b3b3"/>
+					Text="00:00 / 00:00"
+					FontSize="16"/>
+			</StackPanel>
 
-				<StackPanel
-				    Name="TimeSlider"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Spacing="18">
-					
-					<Slider Width="200" Minimum="500" Maximum="1000" StepFrequency="10"
-                        SmallChange="10" Value="780"/>
-					<TextBlock
-						Text="00:00 / 00:00"
-						FontSize="16"/>
-				</StackPanel>
-				
-				<StackPanel
-					Name="Buttons"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Spacing="18">
+			<StackPanel
+				Name="Buttons"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Spacing="18">
 
-					<!-- Prev -->
-					<Button>
-						<FontIcon Glyph="&#xE892;" />
-					</Button>
+				<!-- Prev -->
+				<Button>
+					<FontIcon Glyph="&#xE892;" />
+				</Button>
 
-					<!-- Play -->
-					<Button>
-						<FontIcon Glyph="&#xE768;" />
-					</Button>
+				<!-- Play -->
+				<Button>
+					<FontIcon Glyph="&#xE768;" />
+				</Button>
 
-					<!-- Next -->
-					<Button>
-						<FontIcon Glyph="&#xE893;" />
-					</Button>
-				</StackPanel>
-
+				<!-- Next -->
+				<Button>
+					<FontIcon Glyph="&#xE893;" />
+				</Button>
 			</StackPanel>
 
 		</StackPanel>
-    </Grid>
+
+	</StackPanel>
 </Window>
