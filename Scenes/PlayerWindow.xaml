@@ -31,7 +31,7 @@
                 Spacing="0">
 
 			    <TextBlock
-                    Text="Title"
+                    Text="Titlee"
                     FontSize="18"/>
 				<TextBlock
                     Text="Artist"
