@@ -1,10 +1,10 @@
 {
   "profiles": {
-    "Media Controller (Package)": {
-      "commandName": "MsixPackage"
-    },
-    "Media Controller (Unpackaged)": {
-      "commandName": "Project"
-    }
+	"Media Controller (Package)": {
+	  "commandName": "MsixPackage"
+	},
+	"Media Controller (Unpackaged)": {
+	  "commandName": "Project"
+	}
   }
 }

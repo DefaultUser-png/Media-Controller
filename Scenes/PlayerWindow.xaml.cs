@@ -1,31 +1,43 @@
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Threading.Tasks;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+namespace Media_Controller {
+	public sealed partial class PlayerWindow: Window {
+		public PlayerWindow() {
+			InitializeComponent();
 
-namespace Media_Controller
-{
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class PlayerWindow : Window
-    {
-        public PlayerWindow()
-        {
-            InitializeComponent();
+			AppWindow.Resize(new Windows.Graphics.SizeInt32(450, 160));
+            ExtendsContentIntoTitleBar = true;
+            SetTitleBar(TitleBar);
+            //SizeChanged += SampleWindow3_SizeChanged;
+            if (AppWindow.Presenter is OverlappedPresenter presenter) {
+                presenter.IsResizable = false;
+                presenter.IsMaximizable = false;
+                presenter.IsMinimizable = false;
+                presenter.SetBorderAndTitleBar(false, false);
+            }
+
         }
-    }
+
+		/*
+		private void SampleWindow3_SizeChanged(object sender, WindowSizeChangedEventArgs e)
+		{
+			OverlappedPresenter presenter = (OverlappedPresenter)AppWindow.Presenter;
+			MaximizeRestoreBtn.Content = presenter.State == OverlappedPresenterState.Maximized ? "Restore" : "Maximize";
+		}
+		*/
+
+		private void MinimizeBtn_Click(object sender, RoutedEventArgs e) {
+			if (AppWindow.Presenter is OverlappedPresenter presenter) {
+				presenter.Minimize();
+			}
+		}
+
+		private void CloseBtn_Click(object sender, RoutedEventArgs e) {
+			this.Close();
+		}
+	}
+
+
 }
