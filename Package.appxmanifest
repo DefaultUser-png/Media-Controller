@@ -1,58 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
-  IgnorableNamespaces="uap rescap systemai">
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+	xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+	xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+	xmlns:systemai="http://schemas.microsoft.com/appx/manifest/systemai/windows10"
+	IgnorableNamespaces="uap rescap systemai">
 
-  <Identity
+	<Identity
 	Name="a07e525a-64ea-47f7-a690-716630e08ae9"
 	Publisher="CN=User"
 	Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="a07e525a-64ea-47f7-a690-716630e08ae9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+	<mp:PhoneIdentity PhoneProductId="a07e525a-64ea-47f7-a690-716630e08ae9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
-  <Properties>
+	<Properties>
 	<DisplayName>Media Controller</DisplayName>
 	<PublisherDisplayName>User</PublisherDisplayName>
 	<Logo>Assets\Icon\StoreLogo.png</Logo>
-  </Properties>
+	</Properties>
 
-  <Dependencies>
+	<Dependencies>
 	<TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
 	<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26226.0" />
-  </Dependencies>
+	</Dependencies>
 
-  <Resources>
+	<Resources>
 	<Resource Language="x-generate"/>
-  </Resources>
+	</Resources>
 
-  <Applications>
+	<Applications>
 	<Application Id="App"
-	  Executable="$targetnametoken$.exe"
-	  EntryPoint="$targetentrypoint$">
-	  <uap:VisualElements
+		Executable="$targetnametoken$.exe"
+		EntryPoint="$targetentrypoint$">
+		<uap:VisualElements
 		DisplayName="Media Controller"
 		Description="Media Controller"
 		BackgroundColor="transparent"
 		Square150x150Logo="Assets\Icon\Square150x150Logo.png"
 		Square44x44Logo="Assets\Icon\Square44x44Logo.png">
 		<uap:DefaultTile Wide310x150Logo="Assets\Icon\Wide310x150Logo.png" >
-		  <uap:ShowNameOnTiles>
+			<uap:ShowNameOnTiles>
 			<uap:ShowOn Tile="square150x150Logo"/>
 			<uap:ShowOn Tile="wide310x150Logo"/>
-		  </uap:ShowNameOnTiles>
+			</uap:ShowNameOnTiles>
 		</uap:DefaultTile >
 		<uap:SplashScreen Image="Assets\Icon\SplashScreen.png" />
-	  </uap:VisualElements>
+		</uap:VisualElements>
 	</Application>
-  </Applications>
+	</Applications>
 
-  <Capabilities>
+	<Capabilities>
 	<rescap:Capability Name="runFullTrust" />
 	<systemai:Capability Name="systemAIModels"/>
-  </Capabilities>
+	</Capabilities>
 </Package>

@@ -14,9 +14,15 @@
 	</Window.SystemBackdrop>
 
 	<StackPanel Orientation="Vertical">
+		<StackPanel.Resources>
+			<Style x:Key="WidgetButton" TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+				<Setter Property="Padding" Value="0,0,0,0"/>
+				<Setter Property="CornerRadius" Value="4"/>
+				<Setter Property="BorderThickness" Value="0"/>
+			</Style>
+		</StackPanel.Resources>
 
-		<Grid x:Name="TitleBar"  
-			Height="16">
+		<Grid x:Name="TitleBar" Height="24">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
 				<ColumnDefinition/>
@@ -28,19 +34,26 @@
 				Orientation="Horizontal"
 				HorizontalAlignment="Right"
 				Spacing="6">
-				<!-- Settings -->
-				<Button>
+				<StackPanel.Resources>
+					<Style TargetType="Button" BasedOn="{StaticResource WidgetButton}">
+						<Setter Property="Width" Value="30"/>
+						<Setter Property="Height" Value="24"/>
+						<Setter Property="Opacity" Value="0.5"/>
+					</Style>
+					<Style TargetType="FontIcon">
+						<Setter Property="FontSize" Value="14"/>
+					</Style>
+				</StackPanel.Resources>
+				
+				<Button Click="SettingsBtn_Click">
 					<FontIcon Glyph="&#xE712;" />
 				</Button>
 
-				<!-- Min -->
-				<Button>
+				<Button Click="MinimizeBtn_Click">
 					<FontIcon Glyph="&#xE70D;" />
 				</Button>
 
-				<!-- Exit -->
-				<Button
-					Click="CloseBtn_Click">
+				<Button Click="CloseBtn_Click">
 					<FontIcon Glyph="&#xE711;" />
 				</Button>
 			</StackPanel>
@@ -50,13 +63,14 @@
 		<StackPanel
 			x:Name="Widget"
 			Orientation="Horizontal"
-			Spacing="6">
+			Margin="16,0,16,0">
 
 			<Image
 				x:Name="SongCover"
-				Source="/Assets/GUI/Album_Test.jpg"
+				Source="/Assets/GUI/Album_Test2.jpg"
 				Height="100"
-				VerticalAlignment="Top"/>
+				VerticalAlignment="Top"
+				Margin="0,0,16,0"/>
 
 
 			<StackPanel
@@ -66,10 +80,10 @@
 				Spacing="0">
 
 				<TextBlock
-					Text="Title"
+					Text="Bleak"
 					FontSize="18"/>
 				<TextBlock
-					Text="Artist"
+					Text="Opeth"
 					FontSize="12"
 					Foreground="#b3b3b3"/>
 
@@ -77,39 +91,54 @@
 					Name="TimeSlider"
 					Orientation="Horizontal"
 					HorizontalAlignment="Center"
-					Spacing="18">
+					Spacing="8">
 
-					<Slider Width="200" Minimum="500" Maximum="1000" StepFrequency="10"
-						 SmallChange="10" Value="780"/>
+					<Slider
+						Width="200"
+						Minimum="500"
+						Maximum="1000"
+						StepFrequency="10"
+						SmallChange="10"
+						Value="780"/>
+
 					<TextBlock
 						Text="00:00 / 00:00"
-						FontSize="16"/>
+						VerticalAlignment="Center"
+						FontSize="12"/>
 				</StackPanel>
 
 				<StackPanel
 					Name="Buttons"
 					Orientation="Horizontal"
 					HorizontalAlignment="Center"
-					Spacing="18">
+					Spacing="18"
+					Margin="0,6,0,0">
 
-					<!-- Prev -->
-					<Button>
+					<StackPanel.Resources>
+						<Style TargetType="Button" BasedOn="{StaticResource WidgetButton}">
+							<Setter Property="Width" Value="33"/>
+							<Setter Property="Height" Value="26"/>
+							<Setter Property="Opacity" Value="0.75"/>
+						</Style>
+						<Style TargetType="FontIcon">
+							<Setter Property="FontSize" Value="16"/>
+						</Style>
+					</StackPanel.Resources>
+
+
+					<Button Click="PrevBtn_Click">
 						<FontIcon Glyph="&#xE892;" />
 					</Button>
 
-					<!-- Play -->
-					<Button>
+					<Button Click="PlayBtn_Click">
 						<FontIcon Glyph="&#xE768;" />
 					</Button>
 
-					<!-- Next -->
-					<Button>
+					<Button Click="NextBtn_Click">
 						<FontIcon Glyph="&#xE893;" />
 					</Button>
 				</StackPanel>
-
 			</StackPanel>
-
 		</StackPanel>
 	</StackPanel>
 </Window>

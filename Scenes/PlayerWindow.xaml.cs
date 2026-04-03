@@ -1,32 +1,29 @@
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
-using System.Threading.Tasks;
 
 namespace Media_Controller {
 	public sealed partial class PlayerWindow: Window {
 		public PlayerWindow() {
 			InitializeComponent();
 
-			AppWindow.Resize(new Windows.Graphics.SizeInt32(450, 160));
-            ExtendsContentIntoTitleBar = true;
-            SetTitleBar(TitleBar);
-            //SizeChanged += SampleWindow3_SizeChanged;
-            if (AppWindow.Presenter is OverlappedPresenter presenter) {
-                presenter.IsResizable = false;
-                presenter.IsMaximizable = false;
-                presenter.IsMinimizable = false;
-                presenter.SetBorderAndTitleBar(false, false);
-            }
+			AppWindow.Resize(new Windows.Graphics.SizeInt32(440, 150));
+			ExtendsContentIntoTitleBar = true;
+			SetTitleBar(TitleBar);
+			if (AppWindow.Presenter is OverlappedPresenter presenter) {
+				presenter.IsResizable = false;
+				presenter.IsMaximizable = false;
+				presenter.IsMinimizable = false;
+				presenter.IsAlwaysOnTop = true;
+				presenter.SetBorderAndTitleBar(false, false);
+			}
 
-        }
-
-		/*
-		private void SampleWindow3_SizeChanged(object sender, WindowSizeChangedEventArgs e)
-		{
-			OverlappedPresenter presenter = (OverlappedPresenter)AppWindow.Presenter;
-			MaximizeRestoreBtn.Content = presenter.State == OverlappedPresenterState.Maximized ? "Restore" : "Maximize";
 		}
-		*/
+
+
+
+		private void SettingsBtn_Click(object sender, RoutedEventArgs e) {
+			
+		}
 
 		private void MinimizeBtn_Click(object sender, RoutedEventArgs e) {
 			if (AppWindow.Presenter is OverlappedPresenter presenter) {
@@ -35,9 +32,21 @@ namespace Media_Controller {
 		}
 
 		private void CloseBtn_Click(object sender, RoutedEventArgs e) {
-			this.Close();
+			Close();
+		}
+
+
+
+		private void PrevBtn_Click(object sender, RoutedEventArgs e) {
+			
+		}
+
+		private void PlayBtn_Click(object sender, RoutedEventArgs e) {
+			
+		}
+
+		private void NextBtn_Click(object sender, RoutedEventArgs e) {
+			
 		}
 	}
-
-
 }
