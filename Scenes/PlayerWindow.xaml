@@ -80,9 +80,11 @@
 				Spacing="0">
 
 				<TextBlock
+					x:Name="LabelSong"
 					Text="Bleak"
 					FontSize="18"/>
 				<TextBlock
+					x:Name="LabelArtist"
 					Text="Opeth"
 					FontSize="12"
 					Foreground="#b3b3b3"/>
@@ -102,6 +104,7 @@
 						Value="780"/>
 
 					<TextBlock
+						x:Name="LabelTime"
 						Text="00:00 / 00:00"
 						VerticalAlignment="Center"
 						FontSize="12"/>
@@ -130,7 +133,7 @@
 						<FontIcon Glyph="&#xE892;" />
 					</Button>
 
-					<Button Click="PlayBtn_Click">
+					<Button Name="Play" Click="PlayBtn_Click">
 						<FontIcon Glyph="&#xE768;" />
 					</Button>
 
