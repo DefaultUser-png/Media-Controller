@@ -65,13 +65,21 @@
 			Orientation="Horizontal"
 			Margin="16,0,16,0">
 
-			<Image
-				x:Name="SongCover"
-				Source="/Assets/GUI/Album_Test2.jpg"
-				Height="100"
-				VerticalAlignment="Top"
-				Margin="0,0,16,0"/>
 
+			<Rectangle
+				x:Name="CoverContainer"
+				Width="100"
+				Height="100"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				Margin="0,0,16,0">
+				<Rectangle.Fill>
+					<ImageBrush
+						x:Name="CoverBrush"
+						ImageSource="/Assets/GUI/Album_Test2.jpg"
+						Stretch="UniformToFill"/>
+				</Rectangle.Fill>
+			</Rectangle>
 
 			<StackPanel
 				Name="Controller"
@@ -90,22 +98,32 @@
 					Foreground="#b3b3b3"/>
 
 				<StackPanel
-					Name="TimeSlider"
 					Orientation="Horizontal"
 					HorizontalAlignment="Center"
-					Spacing="8">
+					Spacing="6">
 
 					<Slider
-						Width="200"
-						Minimum="500"
+						x:Name="SliderTime"
+						Width="180"
+						Minimum="0"
 						Maximum="1000"
-						StepFrequency="10"
-						SmallChange="10"
-						Value="780"/>
+						StepFrequency="1"
+						SmallChange="5"
+						Value="780"
+						Margin="8,0,12,0"/>
 
 					<TextBlock
-						x:Name="LabelTime"
-						Text="00:00 / 00:00"
+						x:Name="LabelTimeNow"
+						Text="00:00"
+						VerticalAlignment="Center"
+						FontSize="12"/>
+					<TextBlock
+						Text="/"
+						VerticalAlignment="Center"
+						FontSize="12"/>
+					<TextBlock
+						x:Name="LabelTimeTotal"
+						Text="00:00"
 						VerticalAlignment="Center"
 						FontSize="12"/>
 				</StackPanel>
@@ -115,6 +133,7 @@
 					Orientation="Horizontal"
 					HorizontalAlignment="Center"
 					Spacing="18"
+					Width="140"
 					Margin="0,6,0,0">
 
 					<StackPanel.Resources>
@@ -133,8 +152,8 @@
 						<FontIcon Glyph="&#xE892;" />
 					</Button>
 
-					<Button Name="Play" Click="PlayBtn_Click">
-						<FontIcon Glyph="&#xE768;" />
+					<Button x:Name="Play" Click="PlayBtn_Click">
+						<FontIcon x:Name="PlaySym" Glyph="&#xE768;" />
 					</Button>
 
 					<Button Click="NextBtn_Click">

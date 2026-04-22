@@ -12,6 +12,7 @@ namespace Media_Controller {
 
 	public class PlaybackAPI {
 		public SessionManager manager;
+		public Session? cur_session;
 
 		public delegate void PlaybackHandler(PlaybackInfo playback);
 		public delegate void TimelineHandler(Timeline timeline);
@@ -28,15 +29,32 @@ namespace Media_Controller {
 			OnSessionChanged(manager, null);
 		}
 
-		private void OnSessionChanged(SessionManager manager, CurrentSessionChangedEventArgs? args) {
+
+
+		public void ForceUpdate() {
 			Session s = manager.GetCurrentSession();
-			if (s is not null) {
-				s.PlaybackInfoChanged += OnPlaybackChanged;
-				s.TimelinePropertiesChanged += OnTimelineChanged;
-				s.MediaPropertiesChanged += OnMetaChanged;
-				OnPlaybackChanged(s, null);
-				OnTimelineChanged(s, null);
-				OnMetaChanged(s, null);
+			OnPlaybackChanged(s, null);
+			OnTimelineChanged(s, null);
+			OnMetaChanged(s, null);
+		}
+
+		private void OnSessionChanged(SessionManager manager, CurrentSessionChangedEventArgs? args) {
+			if (cur_session != null) {
+				cur_session.PlaybackInfoChanged -= OnPlaybackChanged;
+				cur_session.TimelinePropertiesChanged -= OnTimelineChanged;
+				cur_session.MediaPropertiesChanged -= OnMetaChanged;
+				OnPlaybackChanged(cur_session, null);
+				OnTimelineChanged(cur_session, null);
+				OnMetaChanged(cur_session, null);
+			}
+			cur_session = manager.GetCurrentSession();
+			if (cur_session != null) {
+				cur_session.PlaybackInfoChanged += OnPlaybackChanged;
+				cur_session.TimelinePropertiesChanged += OnTimelineChanged;
+				cur_session.MediaPropertiesChanged += OnMetaChanged;
+				OnPlaybackChanged(cur_session, null);
+				OnTimelineChanged(cur_session, null);
+				OnMetaChanged(cur_session, null);
 			}
 		}
 
