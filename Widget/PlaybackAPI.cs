@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.Media.Control;
 using Meta = Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties;
 using PlaybackInfo = Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo;
-using Timeline = Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;
 using Session = Windows.Media.Control.GlobalSystemMediaTransportControlsSession;
 using SessionManager = Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager;
-using Windows.Foundation;
+using Timeline = Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties;
 
-namespace Media_Controller {
+namespace Media_Controller.Widget {
 
 	public class PlaybackAPI {
 		public SessionManager manager;
@@ -67,7 +67,10 @@ namespace Media_Controller {
 		}
 
 		private void OnMetaChanged(Session s, MediaPropertiesChangedEventArgs? args) {
-			MetaTask(s);
+			MetaTask(s).ContinueWith(
+				t => Console.WriteLine(t.Exception),
+				TaskContinuationOptions.OnlyOnFaulted
+			);
 		}
 
 
@@ -75,8 +78,7 @@ namespace Media_Controller {
 			if (MetaUpdated is not null) {
 				IAsyncOperation<Meta> op = s.TryGetMediaPropertiesAsync();
 				await op;
-				Meta m = op.GetResults();
-				await MetaUpdated.Invoke(m);
+				await MetaUpdated.Invoke(op.GetResults());
 			}
 		}
 
