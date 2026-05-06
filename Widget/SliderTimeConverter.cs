@@ -2,7 +2,7 @@
 using System;
 
 namespace Converters {
-	public class SliderTimeConverter : IValueConverter {
+	public partial class SliderTimeConverter : IValueConverter {
 		public object Convert(object value, Type targetType, object parameter, string language) {
 			if (value == null) return "0";
 			var s = System.Convert.ToInt32(value);

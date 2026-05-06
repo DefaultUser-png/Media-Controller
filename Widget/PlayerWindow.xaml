@@ -22,7 +22,6 @@
 				<Setter Property="BorderThickness" Value="0"/>
 			</Style>
 			<converters:SliderTimeConverter x:Key="TimeConverter"/>
-			<converters:StringConverter x:Key="StringConverter"/>
 		</StackPanel.Resources>
 
 		<Grid x:Name="TitleBar" Height="24">

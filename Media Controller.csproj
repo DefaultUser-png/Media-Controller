@@ -31,9 +31,9 @@
 	<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260317003" />
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-	  <WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection>
-	  <WebView2LoaderPreference>Static</WebView2LoaderPreference>
-	  <WV2WinRTExplicitIncludesOnly>False</WV2WinRTExplicitIncludesOnly>
+	  <WebView2EnableCsWinRTProjection>True</WebView2EnableCsWinRTProjection>
+	  <WebView2LoaderPreference>Dynamic</WebView2LoaderPreference>
+	  <WV2WinRTExplicitIncludesOnly>True</WV2WinRTExplicitIncludesOnly>
 	</PropertyGroup>
 
 	<!--
@@ -49,7 +49,7 @@
 	<PropertyGroup>
 	<PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
 	<PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
-	<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
+	<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">True</PublishTrimmed>
 	<PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
 	<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
 	<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
@@ -60,10 +60,11 @@
 	<AppxBundle>Never</AppxBundle>
 	<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 	<UseWPF>False</UseWPF>
-	<StartupObject>Media_Controller.Program</StartupObject>
+	<StartupObject></StartupObject>
 	<PlatformTarget>AnyCPU</PlatformTarget>
-	<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-	<PublishAot>True</PublishAot>
+	<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+	<PublishAot>False</PublishAot>
+	<SignAssembly>False</SignAssembly>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
 	  <DebugType>none</DebugType>
