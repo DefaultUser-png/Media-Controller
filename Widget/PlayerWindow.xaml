@@ -91,11 +91,11 @@
 
 				<TextBlock
 					x:Name="LabelSong"
-					Text="Bleak"
+					Text="-"
 					FontSize="18"/>
 				<TextBlock
 					x:Name="LabelArtist"
-					Text="Opeth"
+					Text="-"
 					FontSize="12"
 					Foreground="#b3b3b3"/>
 
@@ -109,7 +109,7 @@
 						x:Name="SliderTime"
 						Width="180"
 						Minimum="0"
-						Maximum="1000"
+						Maximum="0"
 						StepFrequency="1"
 						SmallChange="5"
 						Value="780"

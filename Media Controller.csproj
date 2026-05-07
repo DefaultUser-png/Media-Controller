@@ -84,4 +84,7 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
 	  <DebugType>none</DebugType>
 	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="C:\Users\User\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.260222000\buildTransitive\..\include\MddBootstrapAutoInitializer.cs" />
+	</ItemGroup>
 </Project>

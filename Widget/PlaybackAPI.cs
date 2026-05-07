@@ -32,7 +32,8 @@ namespace Media_Controller.Widget {
 
 
 		public void ForceUpdate() {
-			Session s = manager.GetCurrentSession();
+			Session? s = manager.GetCurrentSession();
+			if (s == null) return;
 			OnPlaybackChanged(s, null);
 			OnTimelineChanged(s, null);
 			OnMetaChanged(s, null);
